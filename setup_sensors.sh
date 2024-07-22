@@ -25,11 +25,11 @@ progress_bar() {
 
 set -e  # Exit immediately if a command exits with a non-zero status.
 
-echo "Starting sensor setup for Gigabyte Z790 Motherboard..."
+echo "Starting sensor setup for Gigabyte Motherboard..."
 
-# Install lm-sensors
-print_success "Installing lm-sensors package..."
-apt-get update && apt-get install -y lm-sensors
+# Install lm_sensors
+print_success "Installing lm_sensors package..."
+dnf update && dnf install -y lm_sensors
 progress_bar 1 4
 
 # Detect sensors
@@ -38,11 +38,11 @@ yes "" | sensors-detect --auto
 progress_bar 2 4
 
 # Install custom it87 driver
-print_success "Installing custom it87 driver for Gigabyte motherboard..."
+print_success "Installing custom it87 driver for Gigabyte Motherboard..."
 if [ -d "it87" ]; then
     print_success "it87 directory already exists. Skipping git clone."
 else
-    git clone https://github.com/frankcrawford/it87 || print_failure "Failed to clone it87 repository."
+    git clone https://github.com/epicalxyz/it87.git || print_failure "Failed to clone it87 repository."
 fi
 
 cd it87
@@ -54,7 +54,7 @@ progress_bar 3 4
 
 # Configure it87 driver to load at boot
 print_success "Configuring it87 driver to load at boot..."
-echo "options it87 ignore_resource_conflict=1 force_id=0x8622" > /etc/modprobe.d/it87.conf
+echo "options it87 ignore_resource_conflict=1 force_id=0x8622" > /etc/modules-load.d/it87.conf
 
 # Check if 'it87' is already in /etc/modules and add if not
 if ! grep -q "^it87$" /etc/modules; then
