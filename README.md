@@ -1,8 +1,11 @@
 # Gigabyte Motherboard Kernel Module Install
 
-Installation script for it87 drivers compatible with Gigabyte Motherboards on Linux
+Installation script for it87 drivers compatible with Gigabyte Motherboards on Linux.
+Note that not all linux distros and motherboards are the same, theres some tunning required to run this script successfully, the idea is to set it once and forget.
 
-**Compatible with Fedora Linux**
+## Tested with:
+
+- Gigabyte Aorus Elite V2 (Nobara 40)
 
 ## Aim
 
@@ -29,11 +32,5 @@ It performs the following tasks:
 ## Script Execution
 
 1. Download or create the script `setup_sensors.sh`
-
-2. Make the script executable:
-
-sudo chmod +x ./setup_sensors.sh
-
-3. Execute the script:
-
-sudo ./setup_sensors.sh
+2. Make the script executable: `sudo chmod +x ./setup_sensors.sh`
+3. Execute the script: `sudo ./setup_sensors.sh`
