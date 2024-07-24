@@ -49,14 +49,15 @@ cd it87
 sudo make clean
 sudo make
 sudo make install
-sudo modprobe it87 ignore_resource_conflict=1 force_id=0x8622
+sudo modprobe it87 ignore_resource_conflict=1
 progress_bar 3 4
 
 # Configure it87 driver to load at boot
 print_success "Configuring it87 driver to load at boot..."
 
-# Module Command 
-echo "options it87 ignore_resource_conflict=1 force_id=0x8622" > /etc/modprobe.d/it87.conf
+# Module Command
+# echo "options it87 ignore_resource_conflict=1 force_id=0x8622" > /etc/modprobe.d/it87.conf # This have force_id if you need to force a specific id
+echo "options it87 ignore_resource_conflict=1" > /etc/modprobe.d/it87.conf
 
 # Module Load
 echo "it87" > /etc/modules-load.d/it87.conf
