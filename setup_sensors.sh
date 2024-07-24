@@ -55,16 +55,11 @@ progress_bar 3 4
 # Configure it87 driver to load at boot
 print_success "Configuring it87 driver to load at boot..."
 
-# Here we have two echo options available, some motherboards might need one or the other, never both
-# Uncomment one and comment the other, test for your situation
-# echo "options it87 ignore_resource_conflict=1 force_id=0x8622" > /etc/modules-load.d/it87.conf
-echo "it87" > /etc/modules-load.d/it87.conf
+# Module Command 
+echo "options it87 ignore_resource_conflict=1 force_id=0x8622" > /etc/modprobe.d/it87.conf
 
-# Check if 'it87' is already in /etc/modules and add if not
-# This is commented because it might not be always necessary, feel free to test
-# if ! grep -q "^it87$" /etc/modules; then
-#    echo "it87" >> /etc/modules
-# fi
+# Module Load
+echo "it87" > /etc/modules-load.d/it87.conf
 
 # Execute sensors command to verify sensor output
 print_success "Executing sensors command to verify sensor output..."
