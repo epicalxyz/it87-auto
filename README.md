@@ -5,7 +5,8 @@ Note that not all linux distros and motherboards are the same, theres some tunni
 
 ## Tested with:
 
-- Gigabyte Aorus Elite V2 (Nobara 40)
+- Gigabyte B550 Aorus Elite V2 - Nobara 40 - Fedora
+- Gigabyte B550 Aorus Elite V2 - EndeavourOS - Arch
 
 ## Aim
 
